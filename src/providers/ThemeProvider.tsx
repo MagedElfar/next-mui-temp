@@ -19,7 +19,7 @@ interface ThemeRegistryProps {
 
 export default function ThemeProvider({ children }: ThemeRegistryProps) {
 
-  const { isRtl, dir } = useAppLocale();
+  const { isRtl } = useAppLocale();
 
   const [{ cache, flush }] = useState(() => {
     const cache = createCache({

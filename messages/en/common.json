@@ -5,5 +5,13 @@
     "brandName": "Stiller",
     "title": "Title",
     "description": "The app description will be here..."
+  },
+  "forms": {
+    "actions": {
+      "submit": "Submit",
+      "reset": "Reset",
+      "back": "Back",
+      "next": "Next"
+    }
   }
 }
