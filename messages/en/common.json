@@ -1,0 +1,9 @@
+{
+  "hello": "Hello from Stiler",
+  "welcome": "Welcome to Stiler",
+  "metadata": {
+    "brandName": "Stiller",
+    "title": "Title",
+    "description": "The app description will be here..."
+  }
+}
