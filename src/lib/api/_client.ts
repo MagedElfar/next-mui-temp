@@ -5,17 +5,17 @@ import axios, {
 } from "axios";
 
 import { useAuthStore } from "@/features/auth/store/useAuthStore";
-import { AuthResult } from "@/features/auth/types";
+import { AuthResult } from "@/features/auth/types/api";
 
-// 💡 التعديل هنا: توجيه الطلبات للـ Proxy المحلي الخاص بـ Next.js للتخلص من CORS
-export const API_URL = "/api/proxy";
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000/api";
 
 export class ApiError extends Error {
   constructor(
     public readonly status: number,
     public readonly code: string | undefined,
     message: string,
-    public readonly details?: any
+    public readonly details?: any // 👈 إضافة details ليحفظ المصفوفات مثل [ "property gender...", "password..." ]
   ) {
     super(message);
     this.name = "ApiError";
@@ -88,7 +88,7 @@ http.interceptors.response.use(
       useAuthStore.getState().clear();
     }
 
-    // استخراج البيانات القادمة من السيرفر بشكل دقيق
+    // 💡 استخراج البيانات القادمة من السيرفر بشكل دقيق
     const rawData = error.response?.data as any;
 
     // التعامل مع نمط الـ API القادم لديك: { error: { code, message, details } }

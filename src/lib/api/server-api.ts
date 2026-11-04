@@ -2,12 +2,14 @@ import { env } from "process";
 
 import { cookies } from "next/headers";
 
-import { ACCESS_TOKEN_KEY, LOCALE_KEY } from "@/config/constants";
-import { FetchOptions, SupportedLocale } from "@/types";
+import { appConfig } from "@/config/app";
+import { Locale } from "@/i18n/types";
+import { FetchOptions } from "@/types/api";
+
 
 export async function serverApi<T>(
     endpoint: string,
-    { params, useAuth = false, locale, ...options }: FetchOptions & { locale?: SupportedLocale } = {}
+    { params, useAuth = false, locale, ...options }: FetchOptions & { locale?: Locale } = {}
 ): Promise<T> {
     const baseUrl = env.serverUrl;
     const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
@@ -28,9 +30,9 @@ export async function serverApi<T>(
 
     if (useAuth) {
         const cookieStore = await cookies();
-        const token = cookieStore.get(ACCESS_TOKEN_KEY)?.value;
+        const token = cookieStore.get(appConfig.keys.accessToken)?.value;
         if (!currentLocale) {
-            currentLocale = cookieStore.get(LOCALE_KEY)?.value as SupportedLocale;
+            currentLocale = cookieStore.get(appConfig.keys.locale)?.value as Locale;
         }
 
         if (token) {

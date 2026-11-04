@@ -29,6 +29,7 @@ export const getMessagesData = async (locale: Locale): Promise<MessagesData> => 
 
     return {
         common: loadFile('common'),
-        countries: loadFile("countries")
+        countries: loadFile("countries"),
+        auth: loadFile("auth"),
     };
 };

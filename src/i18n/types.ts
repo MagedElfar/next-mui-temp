@@ -1,4 +1,5 @@
 import { appConfig } from "@/config/app";
+import type authMessages from "@messages/en/auth.json";
 import type commonMessages from "@messages/en/common.json";
 import type countriesMessages from "@messages/en/countries.json";
 
@@ -12,4 +13,5 @@ export type Direction = "ltr" | "rtl";
 export type MessagesData = {
     common: typeof commonMessages;
     countries: typeof countriesMessages;
+    auth: typeof authMessages;
 };

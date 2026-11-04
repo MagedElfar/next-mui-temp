@@ -21,6 +21,7 @@
     "@tanstack/react-query-devtools": "^5.105.1",
     "axios": "^1.21.0",
     "dayjs": "^1.11.23",
+    "js-cookie": "^3.0.8",
     "libphonenumber-js": "^1.13.15",
     "minimal-shared": "^1.1.6",
     "mui-tel-input": "^11.0.0",
@@ -33,11 +34,13 @@
     "react-toastify": "^11.2.0",
     "stylis": "^4.4.0",
     "stylis-plugin-rtl": "^2.1.1",
-    "zod": "^4.6.7"
+    "zod": "^4.6.7",
+    "zustand": "^5.0.16"
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.1",
     "@eslint/eslintrc": "^3.3.7",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
